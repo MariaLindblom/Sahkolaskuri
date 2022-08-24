@@ -1,23 +1,26 @@
 body{
-    font-family: "Merriweather", Helvetica;
+    font-family: "Goblin One", Helvetica;
 }
 
-div{
+.websiteDiv{
     text-align: center;
 }
 .tittle{
     color: white;
-    -webkit-text-stroke: 2px black;
-    position: relative;
-    display: inline-block;
-}
-.tittleShdow{
-    color: red;
-    position: absolute;
-    top: 2px;
-    left: 4px;
-    display: inline-block;
-    -webkit-text-stroke: 2px black;
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-stroke: 3px black;
+    text-shadow: 3px 4px 1px #ff0000;
 }
 
-/*2px 5px 2px 3px*/
+.input{
+    border: solid 5px black;
+    width: 50%;
+    height: 25px;
+}
+
+.result{
+    text-align: center;
+    margin: 30px auto;
+    width: 40%;
+}

@@ -1,0 +1,7 @@
+[
+    { "id": "1", "name": "Puhelimen lataus", "price": "**"},
+    { "id": "2", "name": "Saunan lämmitys", "price": "**" },
+    { "id": "3", "name": "Jacket", "price": "**" },
+    { "id": "4", "name": "Leivän paahto", "price": "**" },
+    { "id": "5", "name": "Kahvin keitto", "price": "**" }
+]
