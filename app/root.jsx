@@ -7,6 +7,15 @@ const {
   ScrollRestoration,
 } = require("@remix-run/react");
 
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: "/style.css",
+    },
+  ];
+}
+
 export const meta = () => ({
   charset: "utf-8",
   title: "New Remix App",
