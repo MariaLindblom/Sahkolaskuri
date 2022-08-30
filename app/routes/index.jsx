@@ -1,21 +1,19 @@
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { haeSähkönHinta } from "~/api.server";
-import { getData } from "~/api.server";
 import { laskeminen } from "~/laskeminen";
-import { kulutus } from "~/api.server";
+import { haeKulutus } from "~/api.server";
 
 export const loader = async () => {
-  const data = await getData();
   const sahkonhinta = await haeSähkönHinta();
-  return json({ data, sahkonhinta });
+  const kulutus = await haeKulutus();
+  return json({ sahkonhinta, kulutus });
 };
 
 export default function Index() {
-  const { data, sahkonhinta } = useLoaderData();
-  console.log(sahkonhinta);
-  laskeminen
-  console.log(laskeminen(sahkonhinta, kulutus));
+  const { sahkonhinta, kulutus } = useLoaderData();
+  console.log(sahkonhinta, kulutus);
+  console.log(laskeminen(sahkonhinta, kulutus[0].kWh));
   return (
     <div>
       <div className="websiteDiv">
@@ -31,10 +29,10 @@ export default function Index() {
       </div>
       
       <div className="result">
-        {data.map((data) => {
-          
+        {kulutus.map((data) => {
+          console.log(data.kWh);
           return (
-            <div key={data.id}>{data.name} maksaa {data.price} tällä hetkellä.</div>
+            <div key={data.id}>{data.nimi} maksaa {sahkonhinta}€ tällä hetkellä.</div>
           );
         })}
       </div>

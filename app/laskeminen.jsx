@@ -1,3 +1,3 @@
-export const laskeminen = (hinta, kilowatit) {
+export const laskeminen = (hinta, kilowatit) => {
     return hinta * kilowatit;
 }
