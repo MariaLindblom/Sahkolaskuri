@@ -32,7 +32,7 @@ export default function Index() {
         {kulutus.map((data) => {
           console.log(data.kWh);
           return (
-            <div key={data.id}>{data.nimi} maksaa {sahkonhinta}€ tällä hetkellä.</div>
+            <div key={data.id}>{data.nimi} maksaa {laskeminen(sahkonhinta, kulutus[0].kWh)}€ tällä hetkellä.</div>
           );
         })}
       </div>
