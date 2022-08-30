@@ -5,6 +5,7 @@ export const getData = async () => {
   return JSON.parse(data);
 };
 
-
-
-  
+export const laskemiseen = async () => {
+  const laskeminen = await readFile("data/kulutus.json");
+  return JSON.parse(laskeminen);
+};
