@@ -1,0 +1,7 @@
+[
+    {"id":"1", "puhelimen latauksen kulutus":"0,02 kWh"},
+    {"id":"2", "saunan kulutus(1,5h)":"8,00 kWh"},
+    {"id":"3", "mikron kulutus(10 min)":"0,2 kWh"},
+    {"id":"4", "leivänpaahtimen kulutus(5 min)":"0,1 kWh"},
+    {"id":"5", "kahvinkeittimen kulutus(10 min)":"0,1 kWh"}
+]
