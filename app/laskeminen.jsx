@@ -1,3 +1,3 @@
-export const laskeminen = (toiminto, kilowatit) {
-    lasku = toiminto * kilowatit;
+export const laskeminen = (hinta, kilowatit) {
+    return hinta * kilowatit;
 }

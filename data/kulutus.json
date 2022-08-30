@@ -1,7 +1,7 @@
 [
-    {"id":"1", "nimi":"puhelimen lataus", "kulutus":"0,02 kWh"},
-    {"id":"2", "nimi":"saunominen(1,5h)","kulutus":"8,00 kWh"},
-    {"id":"3", "nimi":"mikroaaltouuni(10 min)", "kulutus":"0,2 kWh"},
-    {"id":"4", "nimi":"leivänpaahdin(5 min)", "kulutus":"0,1 kWh"},
-    {"id":"5", "nimi":"kahvinkeitin(10 min)", "kulutus":"0,1 kWh"}
+    {"id":"1", "nimi":"puhelimen lataus", "kWh":"0,02"},
+    {"id":"2", "nimi":"saunominen(1,5h)","kWh":"8,00"},
+    {"id":"3", "nimi":"mikroaaltouuni(10 min)", "kWh":"0,2"},
+    {"id":"4", "nimi":"leivänpaahdin(5 min)", "kWh":"0,1"},
+    {"id":"5", "nimi":"kahvinkeitin(10 min)", "kWh":"0,1"}
 ]
