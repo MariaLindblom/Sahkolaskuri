@@ -1,7 +1,6 @@
 body{
     font-family: "Goblin One", Helvetica;
 }
-
 .websiteDiv{
     text-align: center;
 }
@@ -16,11 +15,19 @@ body{
 .input{
     border: solid 5px black;
     width: 50%;
-    height: 25px;
+    height: 35px;
+    color: #0000006e;
+    font-weight: bold;
 }
 
 .result{
     text-align: center;
     margin: 30px auto;
     width: 40%;
+}
+
+.toimintaSelect{
+    color: #0000006e;
+    text-align: center;
+    font-weight: bold;
 }

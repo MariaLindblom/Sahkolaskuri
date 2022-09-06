@@ -13,40 +13,49 @@ export const loader = async () => {
 
 export default function Index() {
   const { sahkonhinta, kulutus } = useLoaderData();
-  console.log(sahkonhinta, kulutus);
-  console.log(laskeminen(sahkonhinta, kulutus[0].kWh));
   let navigate = useNavigate();
-
+  
   function handleChange(event){
-    navigate("/toiminnat/" + event.target.value, { replace: true })
-    const [count, setCount] = useState(event.target.value);
+    setToiminta(event.target.value)
   }
-
+  
+  const [toiminta, setToiminta] = useState('');
   return (
-    <div>
+    <div className="center">
       <div className="websiteDiv">
         <h1 className="tittle">Sähköhinta laskuri</h1>
 
-        <input onChange={handleChange} className="input tabcontent" list="toiminnat" id="valitaToiminta" name="valitaToiminta" placeholder="Valitse toiminta!"/>
-        <datalist id="toiminnat">
-          <option value="Puhelimen lataus" onClick="kurssi(event, PuhelimenLataus)"/>
-          <option value="Saunan lämmitys" onClick="kurssi(event, 'SaunanLammitys')"/>
-          <option value="Leivän paahto" onClick="kurssi(event, 'LeivänPaahto')"/>
-          <option value="Kahvin keitto" onClick="kurssi(event, 'KahvinKeitto')"/>
-      </datalist>
+        <select onChange={handleChange} value={toiminta} className="input tabcontent" id="valitaToiminta" name="valitaToiminta">
+          <option value="" className="toimintaSelect" disabled>Valitse toiminta!</option>
+          {kulutus.map(kulutusRivi =>
+            <option className="toimintaSelect" key={kulutusRivi.id} value={kulutusRivi.id}>{kulutusRivi.nimi}</option>
+            )}
+        </select>
       </div>
-      
-      <div className="result" >
-        {kulutus.map((data) => {
-          console.log(data.kWh);
-          return (
-            <div key={data.id}>{data.nimi} maksaa {laskeminen(sahkonhinta, kulutus[0].kWh)}€ tällä hetkellä.</div>
-          );
-        })}
+     
+      <div className="result">
+        {toiminta && <Tulos toiminnanId={toiminta}/>}
       </div>
-
 
     </div>
-    
-  );
+
+
+);
+function Tulos({toiminnanId}){
+  const { kulutus } = useLoaderData();
+  const kulutusRivi = kulutus.find(kulutusRivi => kulutusRivi.id === toiminnanId);
+  return <div>{kulutusRivi.nimi} maksaa {laskeminen(sahkonhinta, kulutusRivi.kWh)}€ tällä hetkellä.</div>
+
+  return kulutus.map((data) => {
+    if (toiminnanId === data.id) {
+      return (
+        <div>{data.nimi} maksaa {laskeminen(sahkonhinta, data.kWh)}€ tällä hetkellä.</div>
+      );
+    }
+    return null;
+  });
+
+}
+
+
 }
