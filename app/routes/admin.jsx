@@ -1,12 +1,11 @@
 import { json } from "@remix-run/node";
 import { Form, Link, useLoaderData } from "@remix-run/react";
-import { haeKulutus } from "~/api.server";
+import { haeKulutus, muokattuKwh } from "~/api.server";
 
 export const action = async ({ request }) => {
     const formData = await request.formData();
     const values = Object.fromEntries(formData);
-    //muokattuKwh(values);
-    console.log(values)
+    await muokattuKwh(values);
 
     return null;
 };
@@ -30,7 +29,7 @@ export default function Admin() {
                             Toiminnon nimi: {kulutusRivi.nimi}
                         </label>
                         <label>
-                            Kilowattitunnit: <input name="kwh"  defaultValue={kulutusRivi.kWh} />
+                            Kilowattitunnit: <input name="kWh"  defaultValue={kulutusRivi.kWh} />
                         </label>
                         <input type="hidden" name="id" value={kulutusRivi.id} />
                         <button>Tallenna</button>
