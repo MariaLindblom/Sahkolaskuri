@@ -1,37 +1,42 @@
 import { json } from "@remix-run/node";
 import { Form, Link, useLoaderData } from "@remix-run/react";
-import { haeKulutus, muokatutKilowatit } from "~/api.server";
+import { haeKulutus } from "~/api.server";
 
 export const action = async ({ request }) => {
     const formData = await request.formData();
     const values = Object.fromEntries(formData);
-    muokatutKilowatit(values);
+    //muokattuKwh(values);
+    console.log(values)
+
     return null;
 };
 
 export const loader = async () => {
-    const kulutukset = await haeKulutus();
-    return json(kulutukset);
+    const kulutus = await haeKulutus();
+    return json(kulutus);
 };
 
 export default function Admin() {
-    const kulutukset = useLoaderData();
+    const kulutus = useLoaderData();
 
     return (
-        <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4"}}>
+        <div style={{ fontFamily: "Goblin-one, helvetica", lineHeight: "1.4" }}>
             <Link to="/">Etusivu</Link>
             <h1>Hallintasivu</h1>
-            {haeKulutus.map((kWh, index) => (
+            {kulutus.map((kulutusRivi, index) => (
                 <div key={index}>
                     <Form method="post">
                         <label>
-                            Kilowattitunnit: <input name="kwh" defaultValue={kulutus.kWh} />
+                            Toiminnon nimi: {kulutusRivi.nimi}
                         </label>
-                        <input typeof="hidden" name="index" value={index} />
+                        <label>
+                            Kilowattitunnit: <input name="kwh"  defaultValue={kulutusRivi.kWh} />
+                        </label>
+                        <input type="hidden" name="id" value={kulutusRivi.id} />
                         <button>Tallenna</button>
-                        </Form>
-                    </div>
+                    </Form>
+                </div>
             ))}
         </div>
     );
-}
+};
