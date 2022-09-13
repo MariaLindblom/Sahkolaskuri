@@ -24,7 +24,7 @@ export default function Index() {
     <div className="center">
       <div className="websiteDiv">
         <h1 className="tittle">Sähköhinta laskuri</h1>
-        <Link to="/admin">Hallintasivu</Link>
+        <Link to="/admin" className="hallintaSivuPainike">Hallintasivu</Link>
 
         <select onChange={handleChange} value={toiminta} className="input tabcontent" id="valitaToiminta" name="valitaToiminta">
           <option value="" className="toimintaSelect" disabled>Valitse toiminta!</option>

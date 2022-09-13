@@ -31,3 +31,10 @@ body{
     text-align: center;
     font-weight: bold;
 }
+.hallintaSivuPainike{
+    text-decoration: none;
+    border: solid 5px black;
+    color: black;
+    padding: 4px 6px;
+    margin-left: 10px;
+}
